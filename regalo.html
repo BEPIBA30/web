@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Para Mily 💖</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            flex-direction: column;
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+        .yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .no {
+            background-color: #FF4136;
+            color: white;
+            position: absolute;
+        }
+        #message {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #gif {
+            width: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>¿Quieres ser mi San Valentín? 💘</h1>
+        <img id="gif" src="https://w7.pngwing.com/pngs/177/631/png-transparent-cat-valentine-s-day-kitten-tail-cat.png">
+        <p id="message">💌 No puedes decir que no 💌</p>
+        <div class="buttons">
+            <button class="yes" onclick="sayYes()">Sí 💖</button>
+            <button class="no" id="noButton" onmouseover="moveNo()">No 💔</button>
+        </div>
+    </div>
+
+    <script>
+        let messages = [
+            "😢 No dejes que el miedo te detenga... di SÍ 💕",
+            "🥺 Por favor, te prometo que será inolvidable ❤️",
+            "😍 Vamos, atrévete a decir que sí 💖",
+            "💕 ¿De verdad vas a decir que no? No me hagas esto 🥹",
+            "🎁 Te espera una sorpresa especial si dices que sí 🎉"
+        ];
+
+        let gifs = [
+            "https://i.pinimg.com/originals/f8/be/cb/f8becb4e035e206d0dda352e1f9526df.gif",
+            "https://media.tenor.com/lnI645QIjMAAAAAj/gatitos-enamorados-besos-de-amor.gif",
+            "https://media.tenor.com/LEpkigj-5VIAAAAi/smooch-kisses.gif",
+            "https://media1.tenor.com/m/hPv9wRNqA3EAAAAd/robert-cat.gif",
+            "https://media.tenor.com/T7XQHVr48UIAAAAi/peach-cat.gif",
+        ];
+
+        let index = 0;
+
+        function sayYes() {
+            document.body.innerHTML = "<h1>😍 ¡Sabía que dirías que sí! 😍</h1><p>Te amo, Mily ❤️</p><img src='https://media.tenor.com/O0ifYTDc6xgAAAAi/peach-goma.gif' width='200px'>";
+        }
+
+        function moveNo() {
+            let noButton = document.getElementById("noButton");
+            let message = document.getElementById("message");
+            let gif = document.getElementById("gif");
+
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+
+            // Cambia el mensaje y el GIF
+            if (index < messages.length) {
+                message.innerHTML = messages[index];
+                gif.src = gifs[index];
+                index++;
+            }
+        }
+    </script>
+</body>
+</html>
